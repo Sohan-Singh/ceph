@@ -76,7 +76,7 @@ placement:
 spec:
   qat:
     compression: hw
-  rgw_ext_timeout_secs: 120
+  rgw_exit_timeout_secs: 120
   rgw_frontend_port: 8001
 ```
 
@@ -122,7 +122,7 @@ placement:
 spec:
   certificate_source: cephadm-signed
   generate_cert: true
-  rgw_ext_timeout_secs: 120
+  rgw_exit_timeout_secs: 120
   rgw_frontend_port: 8022
   ssl: true
 ```
@@ -158,7 +158,7 @@ spec:
   generate_cert: true
   qat:
     compression: hw
-  rgw_ext_timeout_secs: 120
+  rgw_exit_timeout_secs: 120
   rgw_frontend_port: 8023
   ssl: true
 ```
@@ -179,7 +179,7 @@ spec:
   generate_cert: true
   qat:
     compression: sw
-  rgw_ext_timeout_secs: 120
+  rgw_exit_timeout_secs: 120
   rgw_frontend_port: 8024
   ssl: true
 ```
@@ -415,7 +415,7 @@ placement:
 spec:
   certificate_source: cephadm-signed
   generate_cert: true
-  rgw_ext_timeout_secs: 120
+  rgw_exit_timeout_secs: 120
   rgw_frontend_port: 8043
   ssl: true
 ```
@@ -464,7 +464,7 @@ spec:
     compression: hw
   certificate_source: cephadm-signed
   generate_cert: true
-  rgw_ext_timeout_secs: 120
+  rgw_exit_timeout_secs: 120
   rgw_frontend_port: 8044
   ssl: true
 ```
@@ -514,7 +514,7 @@ placement:
 spec:
   certificate_source: cephadm-signed
   generate_cert: true
-  rgw_ext_timeout_secs: 120
+  rgw_exit_timeout_secs: 120
   rgw_frontend_port: 8033
   ssl: true
 ```
@@ -565,7 +565,7 @@ placement:
 spec:
   certificate_source: cephadm-signed
   generate_cert: true
-  rgw_ext_timeout_secs: 120
+  rgw_exit_timeout_secs: 120
   rgw_frontend_port: 8034
   ssl: true
 ```
@@ -621,7 +621,7 @@ spec:
     compression: hw
   certificate_source: cephadm-signed
   generate_cert: true
-  rgw_ext_timeout_secs: 120
+  rgw_exit_timeout_secs: 120
   rgw_frontend_port: 8035
   ssl: true
 ```
@@ -679,7 +679,7 @@ spec:
     compression: hw
   certificate_source: cephadm-signed
   generate_cert: true
-  rgw_ext_timeout_secs: 120
+  rgw_exit_timeout_secs: 120
   rgw_frontend_port: 8036
   ssl: true
 ```
