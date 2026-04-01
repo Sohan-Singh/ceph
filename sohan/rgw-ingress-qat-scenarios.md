@@ -276,8 +276,8 @@ placement:
     - ceph16
 spec:
   backend_service: rgw.nossl.one
-  first_virtual_router_id: 51
-  frontend_port: 443
+  first_virtual_router_id: 54
+  frontend_port: 444
   ssl: true
   monitor_port: 1984
   virtual_ip: 9.11.126.97/13
@@ -326,7 +326,7 @@ placement:
 spec:
   backend_service: rgw.nossl.two
   first_virtual_router_id: 52
-  frontend_port: 443
+  frontend_port: 445
   ssl: true
   monitor_port: 1986
   virtual_ip: 9.11.126.52/13
@@ -373,8 +373,8 @@ placement:
     - ceph16
 spec:
   backend_service: rgw.nossl.three
-  first_virtual_router_id: 52
-  frontend_port: 443
+  first_virtual_router_id: 55
+  frontend_port: 446
   haproxy_qat_support: true
   ssl: true
   monitor_port: 1993
@@ -434,7 +434,7 @@ spec:
   backend_service: rgw.ssl_rgw_only_pt
   certificate_source: cephadm-signed
   virtual_ip: 9.11.126.77/23
-  frontend_port: 443
+  frontend_port: 448
   monitor_port: 1976
   use_tcp_mode_over_rgw: true
   ssl: false  # Passthrough mode - no SSL at ingress
@@ -481,7 +481,7 @@ placement:
     - ceph16
 spec:
   backend_service: rgw.ssl_rgw_only_pt_qat
-  frontend_port: 443
+  frontend_port: 449
   virtual_ip: 9.11.126.79/23
   monitor_port: 1977
   use_tcp_mode_over_rgw: true
@@ -532,8 +532,8 @@ placement:
     - ceph16
 spec:
   backend_service: rgw.ssl_rgw_reencrypt
-  first_virtual_router_id: 51
-  frontend_port: 443
+  first_virtual_router_id: 56
+  frontend_port: 450
   generate_cert: true
   monitor_port: 1988
   ssl: true
@@ -583,15 +583,15 @@ placement:
     - ceph16
 spec:
   backend_service: rgw.ssl_rgw_reencrypt_one
-  first_virtual_router_id: 51
+  first_virtual_router_id: 57
   frontend_port: 447
   haproxy_qat_support: true
   ssl: true
   verify_backend_ssl_cert: true
   monitor_port: 1973
   virtual_ip:
-    - 9.11.126.65/19
-    - 9.11.106.5/19
+    - 9.11.126.65/23
+    - 9.11.106.5/23
 ```
 
 ---
@@ -631,7 +631,7 @@ spec:
 ```yaml
 service_type: ingress
 service_id: rgw.ssl_rgw_reencrypt_two
-service_name: ingress.qat_dim_auto_vip_single_one
+service_name: ingress.qat_dim_auto_vip_two
 placement:
   hosts:
     - ceph14
@@ -639,15 +639,15 @@ placement:
     - ceph16
 spec:
   backend_service: rgw.ssl_rgw_reencrypt_two
-  first_virtual_router_id: 52
-  frontend_port: 443
+  first_virtual_router_id: 58
+  frontend_port: 451
   ssl: true
   generate_cert: true
   verify_backend_ssl_cert: true
   monitor_port: 1975
   virtual_ip:
-    - 9.11.188.44/19
-    - 9.11.106.6/19
+    - 9.11.188.44/23
+    - 9.11.106.6/23
 ```
 
 ---
@@ -698,15 +698,15 @@ placement:
 spec:
   backend_service: rgw.ssl_rgw_reencrypt_three
   first_virtual_router_id: 53
-  frontend_port: 443
+  frontend_port: 452
   ssl: true
   verify_backend_ssl_cert: true
   generate_cert: true
   haproxy_qat_support: true
   monitor_port: 1974
-  virtual_ip:
+  virtual_ips_list:
     - 9.11.126.44/23
-    - 9.11.106.7/19
+    - 9.11.106.7/23
 ```
 
 ---
@@ -760,5 +760,5 @@ spec:
 | `qat: compression: sw` | Enable QAT software-based compression at RGW |
 | `haproxy_qat_support: true` | Enable QAT support in HAProxy (not yet supported) |
 | `virtual_ip` | Virtual IP for HAProxy HA/load balancing (single IP, e.g., `9.11.126.96/13`) |
-| `virtual_ip` (list) | List of virtual IPs for multi-network HA/load balancing (e.g., `- 9.11.188.44/19`, `- 9.11.106.5/19`) |
+| `virtual_ips_list` (list) | List of virtual IPs for multi-network HA/load balancing (e.g., `- 9.11.188.44/23`, `- 9.11.106.5/23`) |
 | `first_virtual_router_id` | VRRP router ID for keepalived HA |
